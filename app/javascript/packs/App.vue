@@ -1,27 +1,27 @@
 <template>
   <div id="app">
-    <p>{{ message }}</p>
-    <form v-on:submit="onSubmit">
-      タイトル
-      <input v-model="first_name">
-      <button type="submit">登録</button>
-    </form>
-    <div v-for="user in users" :key="user.id">
-      <p>{{ user.first_name }}</p>
-    </div>
+    <b-container>
+      <Header></Header>
+      <p>{{ message }}</p>
+      <router-view></router-view>
+    </b-container>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
+import Header from '../components/Header.vue'
 
 export default {
   data: function () {
     return {
       message: "Hello Vue!",
-      first_name: '',
-      users: []
+      //first_name: '',
+      //users: []
     }
+  },
+  components: {
+    Header: Header
   },
   mounted() {
     axios.get('/api/v1/users')
