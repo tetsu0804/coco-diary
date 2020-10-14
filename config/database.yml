@@ -49,6 +49,9 @@ test:
 #
 production:
   <<: *default
-  database: coco-diary_production
-  username: coco-diary
-  password: <%= ENV['COCO-DIARY_DATABASE_PASSWORD'] %>
+    database: <%= ENV['DATABASE_NAME'] %>
+    username: <%= ENV['DATABASE_USERNAME'] %>
+    password: <%= ENV['DATABASE_PASSWORD'] %>
+  # database: coco-diary_production
+  # username: coco-diary
+  # password: <%= ENV['COCO-DIARY_DATABASE_PASSWORD'] %>
